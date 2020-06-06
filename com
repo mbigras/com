@@ -19,6 +19,9 @@ help() {
 	com help
 	com version
 	com ansible-playbook ping.yml
+	com ansible --help
+	com ansible -i localhost, -c local all -m ping
+	com vault help
 	com vault kv list secret
 	EOF
 }
@@ -60,6 +63,11 @@ then
 		additional_args="-i localhost, -c local"
 	fi
 	ansible-playbook $additional_args $@
+elif [[ $1 == "ansible" ]]
+then
+	shift
+	additional_args=""
+	ansible $additional_args $@
 elif [[ $1 == "vault" ]]
 then
 	echo start vault dev server
