@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Com is a wrapper around other command-line utilities.
+#
+# Check out the GitHub page for more details:
+#
+# https://github.com/mbigras/com
+#
+# Limitations:
+#
+# - It's not a real tool yet
+# - There's only two commands that run in dev mode
+# - Really, this is mostly an example of a cool idea
+
+docker run \
+	--rm \
+	--tty \
+	-v $(pwd):/com \
+	mbigras/com \
+	$@
